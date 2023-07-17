@@ -1,0 +1,56 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<br>
+<br>
+<h2>Welcome back {{user}}!</h2>
+<hr>
+<br>
+<a id="createlead" class="btn btn-outline-primary btn-sm" href="{% url 'create' %}">
+    Create
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+</a>
+<br>
+<br>
+<table class="table table-hover table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Company</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">LinkedIn</th>
+            <th scope="col">Location</th>
+            <th scope="col">Notes</th>
+
+            <th scope="col">Last Updated</th>
+            <th scope="col">View</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if leads %}
+            {% for lead in leads %}
+            <tr>
+                <td>{{lead.id}}</td>
+                <td>{{lead.first}} {{lead.last}}</td>
+                <td>{{lead.role}}</td>
+                <td>{{lead.company}}</td>
+                <td>{{lead.email}}</td>
+                <td>{{lead.phone}}</td>
+                <td>{{lead.linkedin}}</td>
+                <td>{{lead.location}}</td>
+                <td>{{lead.notes}}</td>
+                <td>{{lead.date}}</td>
+                <td>
+                    <a class="btn btn-success btn-sm" href="{% url 'read' lead.id %}"> 
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a> 
+                </td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+    </tbody>
+</table>
+{% endblock %}

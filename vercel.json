@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "shreyCRM/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "shreyCRM/wsgi.py"
+      }
+    ]
+  }
