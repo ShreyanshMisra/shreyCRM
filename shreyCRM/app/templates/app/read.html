@@ -1,0 +1,62 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            <strong>
+                <h1># {{lead.id}} — {{lead.first}} {{lead.last}}</h1>
+            </strong>
+            <hr>
+            <h6>First</h6>
+            <h3>{{lead.first}}</h3>
+            <br>
+            <h6>Last</h6>
+            <h3>{{lead.last}}</h3>
+            <br>
+            <h6>Role</h6>
+            <h3>{{lead.role}}</h3>
+            <br>
+            <h6>Company</h6>
+            <h3>{{lead.company}}</h3>
+            <br>
+            <h6>Email</h6>
+            <h3>{{lead.email}}</h3>
+            <br>
+            <h6>Phone</h6>
+            <h3>{{lead.phone}}</h3>
+            <br>
+            <h6>LinkedIn</h6>
+            <h3>{{lead.linkedin}}</h3>
+            <br>
+            <h6>Location</h6>
+            <h3>{{lead.location}}</h3>
+            <br>
+            <h6>Notes</h6>
+            <h3>{{lead.notes}}</h3>
+            <br>
+            <h6>Last Updated</h6>
+            <h3>{{lead.date}}</h3>
+        </div>
+    </div>
+    <br>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary">
+        Back
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </a>
+    &nbsp;
+    <a href="{% url 'update' lead.id %}" class="btn btn-info">
+        Update
+        <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+    &nbsp;
+    <a href="{% url 'delete' lead.id %}" class="btn btn-danger">
+        Delete
+        <i class="fa fa-minus-square" aria-hidden="true"></i>
+    </a>
+    <br>
+    <br>
+    <br>
+{% endblock %}
